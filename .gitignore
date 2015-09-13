@@ -1,0 +1,28 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Binary and IDE folders
+target
+bin
+.idea
+
+# IDE files and system scripts
+*.bat
+*.iml
+*.ipr
+*.iws
+
+# eclipse generated files and folders
+.project
+.settings
+**/.classpath
+**/.project
+**/.settings/
+
+# runtime generated files
+*.log
