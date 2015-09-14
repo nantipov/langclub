@@ -36,7 +36,7 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = {"org.langclub.service"})
 @EnableWebMvc
 @EnableWebSecurity
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "org.langclub.service.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
 @EnableTransactionManagement
 public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -53,7 +53,7 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setDataSource(relationalDataSource());
+        factory.setJtaDataSource(relationalDataSource());
         factory.setPackagesToScan("org.langclub.api");
 
         return factory.getObject();
