@@ -18,7 +18,7 @@
         <appender-ref ref="main.file"/>
     </logger>
 
-    <root level="ERROR">
+    <root level="DEBUG">
         <appender-ref ref="main.file"/>
     </root>
 

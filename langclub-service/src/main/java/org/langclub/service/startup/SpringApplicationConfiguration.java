@@ -43,7 +43,7 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
     @Bean
     public DataSource relationalDataSource() {
         JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
-        return dsLookup.getDataSource("java:comp/DefaultDataSource");
+        return dsLookup.getDataSource("datasource/testH2Db"); //TODO: properties
     }
 
     @Bean
@@ -52,9 +52,11 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
         vendorAdapter.setGenerateDdl(true);
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setPersistenceUnitName("relationalDataUnit");
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setJtaDataSource(relationalDataSource());
+        factory.setDataSource(relationalDataSource());
         factory.setPackagesToScan("org.langclub.api");
+        factory.afterPropertiesSet();
 
         return factory.getObject();
     }

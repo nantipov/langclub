@@ -6,7 +6,9 @@
              version="2.1">
 
     <persistence-unit name="relationalDataUnit" transaction-type="RESOURCE_LOCAL">
+
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>relationalDataSource</non-jta-data-source>
 
         <class>org.langclub.api.User</class>
 
