@@ -1,6 +1,6 @@
 package org.langclub.service.dao;
 
-import org.langclub.api.User;
+import org.langclub.api.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;

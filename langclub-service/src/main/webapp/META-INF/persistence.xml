@@ -10,7 +10,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>relationalDataSource</non-jta-data-source>
 
-        <class>org.langclub.api.User</class>
+        <class>org.langclub.api.user.User</class>
 
     </persistence-unit>
 

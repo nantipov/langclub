@@ -1,7 +1,7 @@
 package org.langclub.service.club;
 
 import org.langclub.api.SearchCriteria;
-import org.langclub.api.User;
+import org.langclub.api.user.User;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package org.langclub.service.rest;
 
 import org.langclub.api.SearchCriteria;
-import org.langclub.api.User;
+import org.langclub.api.user.User;
 
 import java.util.List;
 
@@ -19,5 +19,7 @@ public interface RestClubService {
     SearchCriteria getTime();
 
     List<User> getY();
+
+
 
 }

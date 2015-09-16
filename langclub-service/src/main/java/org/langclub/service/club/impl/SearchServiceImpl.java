@@ -1,7 +1,7 @@
 package org.langclub.service.club.impl;
 
 import org.langclub.api.SearchCriteria;
-import org.langclub.api.User;
+import org.langclub.api.user.User;
 import org.langclub.service.club.SearchService;
 import org.langclub.service.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class SearchServiceImpl implements SearchService {
 //        java.time.LocalDateTime.now().toString();
 
         User user = new User();
-        user.setName(java.time.LocalDateTime.now().toString());
+//        user.setName(java.time.LocalDateTime.now().toString());
         userDao.save(user);
 
         return searchCriteria;

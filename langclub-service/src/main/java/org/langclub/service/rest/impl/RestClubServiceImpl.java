@@ -1,7 +1,7 @@
 package org.langclub.service.rest.impl;
 
 import org.langclub.api.SearchCriteria;
-import org.langclub.api.User;
+import org.langclub.api.user.User;
 import org.langclub.service.club.SearchService;
 import org.langclub.service.rest.RestClubService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/club")
 public class RestClubServiceImpl implements RestClubService {
 
     @Autowired
