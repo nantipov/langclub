@@ -1,14 +1,10 @@
 package org.langclub.service.rest.impl;
 
-import org.langclub.api.SearchCriteria;
-import org.langclub.api.user.User;
-import org.langclub.service.club.SearchService;
+import org.langclub.api.club.conference.dto.ConferenceChangeRequestDTO;
+import org.langclub.api.club.conference.dto.ConferenceDTO;
 import org.langclub.service.rest.RestClubService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @author Nikolay Antipov
@@ -24,18 +20,9 @@ import java.util.List;
 @RequestMapping("/club")
 public class RestClubServiceImpl implements RestClubService {
 
-    @Autowired
-    private SearchService searchService;
-
     @Override
-    @RequestMapping("/getTime")
-    public SearchCriteria getTime() {
-        return searchService.getTime();
+    public ConferenceDTO createConference(ConferenceChangeRequestDTO changeRequestDTO) {
+        return null;
     }
 
-    @Override
-    @RequestMapping("/getY")
-    public List<User> getY() {
-        return searchService.getY();
-    }
 }

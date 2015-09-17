@@ -1,9 +1,7 @@
 package org.langclub.service.rest;
 
-import org.langclub.api.SearchCriteria;
-import org.langclub.api.user.User;
-
-import java.util.List;
+import org.langclub.api.club.conference.dto.ConferenceChangeRequestDTO;
+import org.langclub.api.club.conference.dto.ConferenceDTO;
 
 /**
  * @author Nikolay Antipov
@@ -16,10 +14,6 @@ import java.util.List;
  */
 public interface RestClubService {
 
-    SearchCriteria getTime();
-
-    List<User> getY();
-
-
+    ConferenceDTO createConference(ConferenceChangeRequestDTO changeRequestDTO);
 
 }

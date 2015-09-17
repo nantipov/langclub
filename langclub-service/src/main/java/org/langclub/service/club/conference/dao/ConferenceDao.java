@@ -1,6 +1,6 @@
 package org.langclub.service.club.conference.dao;
 
-import org.langclub.api.club.conference.ConferenceSearchCriteriaEntity;
+import org.langclub.api.club.conference.ConferenceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -12,8 +12,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *          $Rev$
  *          $URL$
  */
-public interface ConferenceSearchCriteriaDao extends JpaRepository<ConferenceSearchCriteriaEntity, String> {
-
-
-
+public interface ConferenceDao extends JpaRepository<ConferenceEntity, String> {
 }

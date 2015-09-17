@@ -11,11 +11,13 @@ package org.langclub.api.language;
  */
 public enum LanguageLevel {
 
+    THE_LOWEST,
     BEGINNER,
     PRE_INTERMEDIATE,
     INTERMEDIATE,
     UPPER_INTERMEDIATE,
     ADVANCED,
-    NATIVE;
+    NATIVE,
+    THE_HIGHEST;
 
 }

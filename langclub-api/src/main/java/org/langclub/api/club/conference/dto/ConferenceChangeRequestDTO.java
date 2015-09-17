@@ -1,6 +1,6 @@
-package org.langclub.api.club.conference.mongo;
+package org.langclub.api.club.conference.dto;
 
-import org.springframework.data.annotation.Id;
+import org.langclub.api.language.Language;
 
 /**
  * @author Nikolay Antipov
@@ -11,9 +11,10 @@ import org.springframework.data.annotation.Id;
  *          $Rev$
  *          $URL$
  */
-public class ConferenceSearchCriteria {
+public class ConferenceChangeRequestDTO {
 
-    @Id
     private String id;
+
+    private Language language;
 
 }

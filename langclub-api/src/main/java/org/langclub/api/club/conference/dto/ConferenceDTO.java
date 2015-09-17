@@ -1,4 +1,4 @@
-package org.langclub.service.club.conference.service;
+package org.langclub.api.club.conference.dto;
 
 /**
  * @author Nikolay Antipov
@@ -9,6 +9,5 @@ package org.langclub.service.club.conference.service;
  *          $Rev$
  *          $URL$
  */
-public interface ConferenceAppointmentService {
-
+public class ConferenceDTO {
 }

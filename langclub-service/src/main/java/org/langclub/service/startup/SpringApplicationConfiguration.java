@@ -1,13 +1,9 @@
 package org.langclub.service.startup;
 
-import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.mongodb.MongoDbFactory;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -23,7 +19,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.net.UnknownHostException;
 
 /**
  * @author Nikolay Antipov
@@ -40,8 +35,8 @@ import java.net.UnknownHostException;
 @ComponentScan(basePackages = {"org.langclub.service"})
 @EnableWebMvc
 @EnableWebSecurity
-@EnableJpaRepositories(basePackages = "org.langclub.service.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
-@EnableMongoRepositories(basePackages = "org.langclub.service.dao")
+@EnableJpaRepositories(basePackages = "org.langclub.service.user.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
+@EnableMongoRepositories(basePackages = "org.langclub.service.user.dao")
 @EnableTransactionManagement
 public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -75,6 +70,7 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
     }
 
     /* mongo */
+    /*
     @Bean
     public MongoDbFactory mongoDbFactory() throws UnknownHostException {
         return new SimpleMongoDbFactory(new MongoClient("host", 27017), "dbname");
@@ -85,6 +81,7 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
         MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
         return mongoTemplate;
     }
+    */
 
     /* spring security */
     @Override

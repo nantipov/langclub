@@ -9,9 +9,11 @@ package org.langclub.api.club.conference;
  *          $Rev$
  *          $URL$
  */
-public enum ConferenceType {
+public enum ParticipantType {
 
-    GOOGLE_HANGOUTS,
-    MICROSOFT_SKYPE;
+    ORGANIZER,
+    DRIVER,
+    REQUIRED,
+    REGULAR;
 
 }
