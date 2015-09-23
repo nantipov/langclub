@@ -66,7 +66,7 @@ public class ConferenceEntity {
     @Column(name = "OPTLOCK_VERSION", nullable = false)
     private long version = 0L;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "CONF", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conference", fetch = FetchType.LAZY)
     private Set<UserConferenceEntity> userConferencesSet = new HashSet<>();
 
 

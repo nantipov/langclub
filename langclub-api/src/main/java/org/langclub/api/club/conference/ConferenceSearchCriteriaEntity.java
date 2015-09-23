@@ -26,7 +26,6 @@ public class ConferenceSearchCriteriaEntity {
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
-    @Column(name = "USER", nullable = false)
     private UserEntity user;
 
     @Enumerated(EnumType.STRING)
@@ -39,4 +38,36 @@ public class ConferenceSearchCriteriaEntity {
 
     //TODO: topics, data/time range/expression
 
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public ConferenceTransportType getConferenceTransportType() {
+        return conferenceTransportType;
+    }
+
+    public void setConferenceTransportType(ConferenceTransportType conferenceTransportType) {
+        this.conferenceTransportType = conferenceTransportType;
+    }
+
+    public LanguageLevel getMinLanguageLevel() {
+        return minLanguageLevel;
+    }
+
+    public void setMinLanguageLevel(LanguageLevel minLanguageLevel) {
+        this.minLanguageLevel = minLanguageLevel;
+    }
 }

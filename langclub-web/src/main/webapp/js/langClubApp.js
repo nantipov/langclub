@@ -1,4 +1,4 @@
-var langClubApp = angular.module( "langClubApp", ['ngRoute', 'ui.bootstrap'] );
+var langClubApp = angular.module( "langClubApp", ['ngRoute', 'ngMaterial'] );
 	
 langClubApp.controller('generalController', function($scope) {
 	$scope.tabs = [{name: 'tab1'}, {name: 'tab2'}];

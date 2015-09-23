@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -35,8 +34,7 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = {"org.langclub.service"})
 @EnableWebMvc
 @EnableWebSecurity
-@EnableJpaRepositories(basePackages = "org.langclub.service.user.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
-@EnableMongoRepositories(basePackages = "org.langclub.service.user.dao")
+@EnableJpaRepositories(basePackages = "org.langclub.service.**.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
 @EnableTransactionManagement
 public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -68,20 +66,6 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
         txManager.setEntityManagerFactory(relationEntityManagerFactory());
         return txManager;
     }
-
-    /* mongo */
-    /*
-    @Bean
-    public MongoDbFactory mongoDbFactory() throws UnknownHostException {
-        return new SimpleMongoDbFactory(new MongoClient("host", 27017), "dbname");
-    }
-
-    @Bean
-    public MongoTemplate mongoTemplate() throws UnknownHostException {
-        MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
-        return mongoTemplate;
-    }
-    */
 
     /* spring security */
     @Override

@@ -35,13 +35,13 @@ public class UserEntity {
     @Column(name = "FULL_NAME")
     private String fullName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "USER", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private Set<UserLanguageEntity> userLanguageSet = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "USER", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private Set<UserConferenceEntity> userConferencesSet = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "USER", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private Set<ConferenceSearchCriteriaEntity> userConferenceSearchCriteria = new HashSet<>();
 
 

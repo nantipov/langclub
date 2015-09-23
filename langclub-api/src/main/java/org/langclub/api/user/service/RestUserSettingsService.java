@@ -1,4 +1,4 @@
-package org.langclub.service.rest;
+package org.langclub.api.user.service;
 
 import org.langclub.api.user.dto.UserSettingsDTO;
 

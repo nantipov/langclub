@@ -2,7 +2,7 @@ package org.langclub.service.rest.impl;
 
 import org.langclub.api.club.conference.dto.ConferenceChangeRequestDTO;
 import org.langclub.api.club.conference.dto.ConferenceDTO;
-import org.langclub.service.rest.RestClubService;
+import org.langclub.api.club.service.RestClubService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

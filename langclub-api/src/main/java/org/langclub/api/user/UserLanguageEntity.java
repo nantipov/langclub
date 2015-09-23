@@ -23,7 +23,6 @@ public class UserLanguageEntity {
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "USER")
     @ManyToOne
     @JoinColumn(name = "USER_ID", nullable = false)
     private UserEntity user;

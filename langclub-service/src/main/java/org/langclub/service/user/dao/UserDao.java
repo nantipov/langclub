@@ -19,6 +19,4 @@ import java.util.List;
 @Transactional
 public interface UserDao extends JpaRepository<UserEntity, String> {
 
-    List<UserEntity> findByName(String name);
-
 }

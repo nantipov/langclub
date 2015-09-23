@@ -25,12 +25,10 @@ public class UserConferenceEntity {
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
-    @Column(name = "USER")
     private UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "CONFERENCE_ID")
-    @Column(name = "CONF")
     private ConferenceEntity conference;
 
     @Enumerated(EnumType.STRING)

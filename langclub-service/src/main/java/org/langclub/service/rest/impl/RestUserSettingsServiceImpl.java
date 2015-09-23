@@ -1,7 +1,7 @@
 package org.langclub.service.rest.impl;
 
 import org.langclub.api.user.dto.UserSettingsDTO;
-import org.langclub.service.rest.RestUserSettingsService;
+import org.langclub.api.user.service.RestUserSettingsService;
 import org.langclub.service.user.service.UserSettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
