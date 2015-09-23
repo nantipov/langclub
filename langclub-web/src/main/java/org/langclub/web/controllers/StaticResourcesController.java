@@ -1,11 +1,9 @@
 package org.langclub.web.controllers;
 
-import org.springframework.http.HttpRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Nikolay Antipov
