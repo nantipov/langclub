@@ -1,9 +1,14 @@
-var langClubApp = angular.module( "langClubApp", ['ngRoute', 'ngMaterial'] );
+var langClubApp = angular.module( "langClubApp", ['ngRoute'/*, 'ngView'*/, 'ngMaterial'] );
 	
-langClubApp.controller('generalController', function($scope) {
+langClubApp.controller('generalController', function($scope, $mdSidenav) {
 	$scope.tabs = [{name: 'tab1'}, {name: 'tab2'}];
+	
+	$scope.openLeftMenu = function() {
+		$mdSidenav('left').toggle();
+		};
 });
 
+/*
 langClubApp.config(function($routeProvider) {
 
     $routeProvider
@@ -26,4 +31,4 @@ langClubApp.config(function($routeProvider) {
         controller  : 'contactController'
     });
     
-});
+});*/
