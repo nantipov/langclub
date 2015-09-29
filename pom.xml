@@ -14,9 +14,7 @@
 
     <modules>
 		<module>langclub-api</module>
-        <module>langclub-service</module>
-        <module>langclub-web</module>
-        <module>langclub-ear</module>
+        <module>langclub-webapp</module>
     </modules>
 
     <properties>

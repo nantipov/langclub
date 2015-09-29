@@ -1,0 +1,5 @@
+<Context path="/langclub">
+
+    <ResourceLink name="datasource/testH2Db" global="jdbc_testH2Db" type="javax.sql.DataSource"/>
+
+</Context>
