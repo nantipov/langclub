@@ -6,6 +6,16 @@ langClubApp.controller('generalController', function($scope, $mdSidenav) {
 	$scope.openLeftMenu = function() {
 		$mdSidenav('left').toggle();
 		};
+
+    $scope.menu = {};
+    $scope.menu.sections = [
+        {name: "section1", type: 'heading'},
+        {name: "section2", children: [
+            {type: 'link'},
+            {type: 'toggle'}
+        ], type: 'toggle'},
+        {name: "section3", type: 'link'}
+    ];
 });
 
 /*

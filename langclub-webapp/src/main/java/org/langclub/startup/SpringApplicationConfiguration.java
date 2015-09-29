@@ -36,7 +36,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@ComponentScan(basePackages = {"org.langclub.service"})
+@ComponentScan(basePackages = {"org.langclub"})
 @EnableWebMvc
 @EnableWebSecurity
 @EnableJpaRepositories(basePackages = "org.langclub.service.**.dao", entityManagerFactoryRef = "relationEntityManagerFactory", transactionManagerRef = "relationalTransactionalManager")
@@ -74,21 +74,11 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
 
     /* web */
     @Bean
-    public ViewResolver viewResolver0() {
+    public ViewResolver viewResolver() {
         UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
-        viewResolver.setOrder(0);
-        return viewResolver;
-    }
-
-    @Bean
-    public ViewResolver viewResolver1() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(InternalResourceView.class);
-        viewResolver.setPrefix("/");
-        viewResolver.setOrder(1);
         return viewResolver;
     }
 

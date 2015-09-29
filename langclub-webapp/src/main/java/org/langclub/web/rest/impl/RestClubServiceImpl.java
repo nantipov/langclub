@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/club")
+@RequestMapping("/rest/club")
 public class RestClubServiceImpl implements RestClubService {
 
     @Override
