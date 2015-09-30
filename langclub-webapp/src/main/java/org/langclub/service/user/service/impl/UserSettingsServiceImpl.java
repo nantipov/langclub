@@ -57,6 +57,7 @@ public class UserSettingsServiceImpl implements UserSettingsService {
     }
 
     @Override
+    @Transactional
     public void setUserSettings(UserSettingsDTO userSettings) {
         String userId = userSettings.getUserId();
         UserEntity userEntity = userDao.findOne(userId);
