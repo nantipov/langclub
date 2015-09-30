@@ -15,4 +15,6 @@ public interface RestUserSettingsService {
 
     UserSettingsDTO getUserSettings();
 
+    void setUserSettings(UserSettingsDTO userSettings);
+
 }

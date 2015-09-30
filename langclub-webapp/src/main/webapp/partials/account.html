@@ -1,0 +1,28 @@
+<md-tabs>
+    <md-tab label="Profile settings">
+        <md-content>
+            <md-button ng-click="getUserSettings()">get</md-button>
+            <md-button ng-click="setStubUserSettings()">set</md-button>
+            <md-list>
+                <md-list-item ng-repeat="language in languages">
+                    {{language.language}} - {{language.level}}
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-tab>
+    <md-tab label="Connected accounts">
+        <md-content>
+
+        </md-content>
+    </md-tab>
+    <md-tab label="Photo">
+        <md-content>
+
+        </md-content>
+    </md-tab>
+    <md-tab label="Payment settings">
+        <md-content>
+
+        </md-content>
+    </md-tab>
+</md-tabs>

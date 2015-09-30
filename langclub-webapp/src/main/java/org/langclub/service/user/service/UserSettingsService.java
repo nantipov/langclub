@@ -14,6 +14,9 @@ import org.langclub.api.user.dto.UserSettingsDTO;
 public interface UserSettingsService {
 
     UserSettingsDTO getUserSettings();
+
     UserSettingsDTO getUserSettings(String userId);
+
+    void setUserSettings(UserSettingsDTO userSettings);
 
 }

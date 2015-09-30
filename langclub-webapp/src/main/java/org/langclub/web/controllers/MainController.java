@@ -1,6 +1,7 @@
 package org.langclub.web.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -26,5 +27,10 @@ public class MainController {
     public String mainApp() {
         return "app/index";
     }
+
+//    @RequestMapping("/partials/{viewName}")
+//    public String appPartials(@PathVariable("viewName") String viewName) {
+//        return "app/partials/" + viewName;
+//    }
 
 }

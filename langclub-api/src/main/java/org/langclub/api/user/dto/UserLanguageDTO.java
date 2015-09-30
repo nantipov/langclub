@@ -17,6 +17,14 @@ public class UserLanguageDTO {
     private Language language;
     private LanguageLevel level;
 
+    public UserLanguageDTO() {
+    }
+
+    public UserLanguageDTO(Language language, LanguageLevel level) {
+        this.language = language;
+        this.level = level;
+    }
+
     public Language getLanguage() {
         return language;
     }

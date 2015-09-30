@@ -4,6 +4,7 @@ import org.langclub.api.user.dto.UserSettingsDTO;
 import org.langclub.api.user.service.RestUserSettingsService;
 import org.langclub.service.user.service.UserSettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,12 @@ public class RestUserSettingsServiceImpl implements RestUserSettingsService {
     @RequestMapping(value = "/settings", method = RequestMethod.GET)
     public UserSettingsDTO getUserSettings() {
         return userSettingsService.getUserSettings();
+    }
+
+    @Override
+    @RequestMapping(value = "/settings", method = RequestMethod.POST)
+    public void setUserSettings(@RequestBody UserSettingsDTO userSettings) {
+        userSettingsService.setUserSettings(userSettings);
     }
 
 }

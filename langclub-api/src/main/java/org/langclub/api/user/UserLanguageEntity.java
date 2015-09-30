@@ -20,6 +20,7 @@ import javax.persistence.*;
 public class UserLanguageEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private String id;
 

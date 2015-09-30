@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class StaticResourcesController {
 
-    @RequestMapping(value = {"/css/*.css", "/js/*.js"})
+    @RequestMapping(value = {"/css/*.css", "/js/*.js", "/partials/*.html"})
     @ResponseBody
     public String process(HttpServletRequest httpServletRequest) throws IOException {
         String contextPath = httpServletRequest.getContextPath();
