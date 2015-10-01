@@ -3,11 +3,15 @@
         <md-content>
             <md-button ng-click="getUserSettings()">get</md-button>
             <md-button ng-click="setStubUserSettings()">set</md-button>
-            <md-list>
-                <md-list-item ng-repeat="language in languages">
-                    {{language.language}} - {{language.level}}
-                </md-list-item>
-            </md-list>
+            <h1>{{msg}}</h1>
+            <div class="accordion">
+                <md-list>
+                    <md-list-item ng-repeat="language in languages">
+                        {{language.language}} - {{language.level}}
+                    </md-list-item>
+                </md-list>
+            </div>
+
         </md-content>
     </md-tab>
     <md-tab label="Connected accounts">

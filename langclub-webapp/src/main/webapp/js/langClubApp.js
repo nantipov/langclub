@@ -45,8 +45,9 @@ langClubApp.controller('generalController', function($scope, $mdSidenav) {
 langClubApp.controller('accountController', ['$scope', 'userSettings', function($scope, userSettings) {
 
     $scope.getUserSettings = function() {
-        var settings = userSettings.getSettings();
-        $scope.languages = settings['userLanguages'];
+        userSettings.get({}, function(settingsData) {
+            $scope.languages = settingsData.userLanguages;
+        });
     };
 
     $scope.setStubUserSettings = function() {
@@ -57,7 +58,7 @@ langClubApp.controller('accountController', ['$scope', 'userSettings', function(
                 {language: 'RUSSIAN', level: 'NATIVE'}
             ]
         };
-        userSettings.setSettings(settings);
+        userSettings.save({}, settings);
     };
 
 }]);

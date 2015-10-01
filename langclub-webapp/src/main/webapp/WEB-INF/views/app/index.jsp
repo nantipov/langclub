@@ -53,6 +53,9 @@
 
     <!-- Container #4 Right -->
     <md-content flex id="content">
+        <md-toolbar>
+            <div layout="row" layout-align="end center">User name</div>
+        </md-toolbar>
        <div ng-view></div>
     </md-content>
 </div>
