@@ -6,5 +6,16 @@ angular.module('userService', ['ngResource']).factory('userSettings', ['$resourc
         save: {method: 'POST'}
     });
 
-    return UserSettingsResource;
+    var getSettings = function (successEvent) {
+        UserSettingsResource.get({}, successEvent);
+    };
+
+    var setSettings = function (settings) {
+        UserSettingsResource.save({}, settings);
+    };
+
+    return {
+        getSettings: getSettings,
+        setSettings: setSettings
+    };
 }]);
