@@ -1,6 +1,6 @@
-var langClubApp = angular.module( "langClubApp", ['ngRoute', 'ngMaterial', 'userService'] );
+var langClubApp = angular.module( "langClubApp", ['ngRoute', 'ngMaterial', 'ngMessages', 'userService'] );
 	
-langClubApp.controller('generalController', function($scope, $mdSidenav) {
+langClubApp.controller('generalController', ['$scope', '$mdSidenav', '$mdMedia', function($scope, $mdSidenav, $mdMedia) {
 
     $scope.navigationItems = [
         {id: '#navViewDashboard', name: 'Dashboard'},
@@ -16,31 +16,15 @@ langClubApp.controller('generalController', function($scope, $mdSidenav) {
         $scope.currentNavItem = navView;
     };
 
-	$scope.tabs = [{name: 'tab1'}, {name: 'tab2'}];
+    $scope.toggleNavMenu = function() {
+        $mdSidenav('left').toggle();
+    };
 
-	$scope.openLeftMenu = function() {
-		$mdSidenav('left').toggle();
-		};
+    $scope.mdMediaWrapper = function() {
+        return $mdMedia('gt-sm');
+    };
 
-    $scope.menu = {};
-    $scope.menu.sections = [
-        {name: "section1", type: 'heading'},
-        {name: "section2", children: [
-            {type: 'link'},
-            {type: 'toggle'}
-        ], type: 'toggle'},
-        {name: "section3", type: 'link'}
-    ];
-
-    $scope.users = [
-        {name: 'u1', selected: 'true', avatar: 'av1'},
-        {name: 'u2', avatar: 'av2'},
-        {name: 'u3', avatar: 'av3'}
-    ];
-
-    $scope.selected = $scope.users[0];
-
-});
+}]);
 
 langClubApp.controller('accountController', ['$scope', 'userSettings', function($scope, userSettings) {
 
@@ -59,6 +43,10 @@ langClubApp.controller('accountController', ['$scope', 'userSettings', function(
             ]
         };
         userSettings.setSettings(settings);
+    };
+
+    $scope.user = {
+        nickname: "Hey"
     };
 
 }]);

@@ -1,15 +1,42 @@
 <md-tabs>
     <md-tab label="Profile settings">
         <md-content>
-            <md-button ng-click="getUserSettings()">get</md-button>
-            <md-button ng-click="setStubUserSettings()">set</md-button>
-            <h1>{{msg}}</h1>
-            <div class="accordion">
-                <md-list>
-                    <md-list-item ng-repeat="language in languages">
-                        {{language.language}} - {{language.level}}
-                    </md-list-item>
-                </md-list>
+            <div layout="row" flex>
+                <div flex="50">
+                    <h2>Personal data</h2>
+                    <form name="personalDataForm">
+                        <md-input-container>
+                            <label>Nickname</label><input name="nickname" ng-model="user.nickname" required md-maxlength="30">
+                            <div ng-messages="personalDataForm.nickname.$error" ng-show="personalDataForm.nickname.$dirty">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="md-maxlength">That's too long!</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Full name</label><input name="fullName" ng-model="user.fullName" required>
+                            <div ng-messages="personalDataForm.fullName.$error" ng-show="personalDataForm.fullName.$dirty">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="md-maxlength">That's too long!</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
+                    </form>
+                </div>
+                <md-divider></md-divider>
+                <div flex="50">
+                    <h2>Languages</h2>
+                    <md-button ng-click="getUserSettings()">get</md-button>
+                    <md-button ng-click="setStubUserSettings()">set</md-button>
+                    <h1>{{msg}}</h1>
+                    <div class="accordion">
+                        <md-list>
+                            <md-list-item ng-repeat="language in languages">
+                                {{language.language}} - {{language.level}}
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
             </div>
 
         </md-content>
