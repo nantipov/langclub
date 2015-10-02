@@ -3,9 +3,9 @@ package org.langclub.service.user.service.impl;
 import org.langclub.api.user.UserEntity;
 import org.langclub.api.user.UserLanguageEntity;
 import org.langclub.api.user.dto.UserLanguageDTO;
-import org.langclub.api.user.dto.UserSettingsDTO;
+import org.langclub.api.user.dto.UserDataDTO;
 import org.langclub.service.user.dao.UserDao;
-import org.langclub.service.user.service.UserSettingsService;
+import org.langclub.service.user.service.UserDataService;
 import org.langclub.service.user.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,20 +27,20 @@ import java.util.Set;
  */
 
 @Service
-public class UserSettingsServiceImpl implements UserSettingsService {
+public class UserDataServiceImpl implements UserDataService {
 
     @Autowired
     private UserDao userDao;
 
     @Override
     @Transactional
-    public UserSettingsDTO getUserSettings() {
-        return getUserSettings(UserUtils.getCurrentUserId());
+    public UserDataDTO getUserData() {
+        return getUserData(UserUtils.getCurrentUserId());
     }
 
     @Override
     @Transactional
-    public UserSettingsDTO getUserSettings(String userId) {
+    public UserDataDTO getUserData(String userId) {
         UserEntity userEntity = userDao.findOne(userId);
         if (userEntity == null) {
             List<UserEntity> users = userDao.findAll();
@@ -49,17 +49,17 @@ public class UserSettingsServiceImpl implements UserSettingsService {
             }
         }
 
-        UserSettingsDTO userSettingsDTO = new UserSettingsDTO();
+        UserDataDTO userDataDTO = new UserDataDTO();
 
-        UserSettingsHelper.fillUserSettingsDTO(userSettingsDTO, userEntity);
+        UserSettingsHelper.fillUserSettingsDTO(userDataDTO, userEntity);
 
-        return userSettingsDTO;
+        return userDataDTO;
     }
 
     @Override
     @Transactional
-    public void setUserSettings(UserSettingsDTO userSettings) {
-        String userId = userSettings.getUserId();
+    public void setUserData(UserDataDTO userData) {
+        String userId = userData.getUserId();
         UserEntity userEntity = userDao.findOne(userId);
 
         if (userEntity == null) {
@@ -73,7 +73,7 @@ public class UserSettingsServiceImpl implements UserSettingsService {
         while (languageEntityIterator.hasNext()) {
             UserLanguageEntity userLanguageEntity = languageEntityIterator.next();
             boolean found = false;
-            for (UserLanguageDTO userLanguageDTO: userSettings.getUserLanguages()) {
+            for (UserLanguageDTO userLanguageDTO: userData.getUserLanguages()) {
                 if (userLanguageDTO.getLanguage() == userLanguageEntity.getLanguage()) {
                     found = true;
                     processedLanguages.add(userLanguageDTO);
@@ -90,8 +90,8 @@ public class UserSettingsServiceImpl implements UserSettingsService {
         }
 
         // process new languages
-        userSettings.getUserLanguages().removeAll(processedLanguages);
-        for (UserLanguageDTO userLanguageDTO: userSettings.getUserLanguages()) {
+        userData.getUserLanguages().removeAll(processedLanguages);
+        for (UserLanguageDTO userLanguageDTO: userData.getUserLanguages()) {
             UserLanguageEntity userLanguageEntity = new UserLanguageEntity();
             userLanguageEntity.setLanguage(userLanguageDTO.getLanguage());
             userLanguageEntity.setLanguageLevel(userLanguageDTO.getLevel());

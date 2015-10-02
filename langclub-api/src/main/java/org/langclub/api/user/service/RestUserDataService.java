@@ -1,6 +1,6 @@
 package org.langclub.api.user.service;
 
-import org.langclub.api.user.dto.UserSettingsDTO;
+import org.langclub.api.user.dto.UserDataDTO;
 
 /**
  * @author Nikolay Antipov
@@ -11,10 +11,10 @@ import org.langclub.api.user.dto.UserSettingsDTO;
  *          $Rev$
  *          $URL$
  */
-public interface RestUserSettingsService {
+public interface RestUserDataService {
 
-    UserSettingsDTO getUserSettings();
+    UserDataDTO getUserData();
 
-    void setUserSettings(UserSettingsDTO userSettings);
+    void setUserData(UserDataDTO userData);
 
 }

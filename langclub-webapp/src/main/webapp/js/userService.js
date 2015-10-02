@@ -1,21 +1,21 @@
-angular.module('userService', ['ngResource']).factory('userSettings', ['$resource', function($resource) {
+angular.module('userService', ['ngResource']).factory('userData', ['$resource', function($resource) {
 
     // resource class
-    var UserSettingsResource = $resource('rest/user/settings', {}, {
+    var UserDataResource = $resource('rest/user/data', {}, {
         get: {method: 'GET'},
         save: {method: 'POST'}
     });
 
-    var getSettings = function (successEvent) {
-        UserSettingsResource.get({}, successEvent);
+    var getData = function (successEvent) {
+        UserDataResource.get({}, successEvent);
     };
 
-    var setSettings = function (settings) {
-        UserSettingsResource.save({}, settings);
+    var setData = function (data) {
+        UserDataResource.save({}, data);
     };
 
     return {
-        getSettings: getSettings,
-        setSettings: setSettings
+    	getData: getData,
+    	setData: setData
     };
 }]);

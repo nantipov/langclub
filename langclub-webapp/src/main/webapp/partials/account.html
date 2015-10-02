@@ -1,7 +1,7 @@
-<md-tabs>
+<md-tabs md-dynamic-height>
     <md-tab label="Profile settings">
-        <md-content>
-            <div layout="row" flex>
+        <md-content >
+            <div layout="row">
                 <div flex="50">
                     <h2>Personal data</h2>
                     <form name="personalDataForm">
@@ -21,24 +21,28 @@
                                 <div ng-message="minlength">That's too short!</div>
                             </div>
                         </md-input-container>
+                        <md-input-container>
+                            <label>Email</label><input name="email" ng-model="user.email" required>
+                            <div ng-messages="personalDataForm.email.$error" ng-show="personalDataForm.email.$dirty">
+                                <div ng-message="required">This is required!</div>
+                                <div ng-message="md-maxlength">That's too long!</div>
+                                <div ng-message="minlength">That's too short!</div>
+                            </div>
+                        </md-input-container>
                     </form>
                 </div>
                 <md-divider></md-divider>
                 <div flex="50">
                     <h2>Languages</h2>
-                    <md-button ng-click="getUserSettings()">get</md-button>
-                    <md-button ng-click="setStubUserSettings()">set</md-button>
-                    <h1>{{msg}}</h1>
-                    <div class="accordion">
-                        <md-list>
-                            <md-list-item ng-repeat="language in languages">
-                                {{language.language}} - {{language.level}}
-                            </md-list-item>
-                        </md-list>
-                    </div>
+                    <md-list>
+                    	<md-list-item ng-repeat="lang in user.languages">
+                    		{{lang.language}}: {{lang.level}}
+                    	</md-list-item>
+                    </md-list>
                 </div>
             </div>
-
+            <md-divider></md-divider>
+            <md-button ng-click="setStubUserSettings()">set test data</md-button>
         </md-content>
     </md-tab>
     <md-tab label="Connected accounts">

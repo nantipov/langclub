@@ -13,10 +13,11 @@ import java.util.Set;
  *          $URL$
  */
 
-public class UserSettingsDTO {
+public class UserDataDTO {
 
     private String userId;
 
+    private UserPersonalDataDTO userPersonalData = new UserPersonalDataDTO();
     private Set<UserLanguageDTO> userLanguages = new HashSet<>();
 
     public String getUserId() {
@@ -27,7 +28,11 @@ public class UserSettingsDTO {
         this.userId = userId;
     }
 
-    public Set<UserLanguageDTO> getUserLanguages() {
+    public UserPersonalDataDTO getPersonalUserData() {
+		return userPersonalData;
+	}
+
+	public Set<UserLanguageDTO> getUserLanguages() {
         return userLanguages;
     }
 

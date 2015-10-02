@@ -26,28 +26,37 @@ langClubApp.controller('generalController', ['$scope', '$mdSidenav', '$mdMedia',
 
 }]);
 
-langClubApp.controller('accountController', ['$scope', 'userSettings', function($scope, userSettings) {
+langClubApp.controller('accountController', ['$scope', 'userData', function($scope, userData) {
 
-    $scope.getUserSettings = function() {
-        userSettings.getSettings(function(settingsData) {
-            $scope.languages = settingsData.userLanguages;
+    $scope.getUserData = function() {
+        userData.getData(function(data) {
+            $scope.languages = data.userLanguages;
         });
     };
 
     $scope.setStubUserSettings = function() {
-        var settings = {
+        var data = {
             userId: '0',
             userLanguages: [
                 {language: 'ENGLISH', level: 'ADVANCED'},
                 {language: 'RUSSIAN', level: 'NATIVE'}
             ]
         };
-        userSettings.setSettings(settings);
+        userData.setData(data);
     };
 
-    $scope.user = {
-        nickname: "Hey"
-    };
+    var loadUserData = function() {
+    	userData.getData(function(data) {
+            $scope.user = {
+            		personalData: data.personalData,
+            		languages: data.userLanguages
+            };
+        });
+    }
+    
+    $scope.$on('$viewContentLoaded', function() {
+        loadUserData();
+    });
 
 }]);
 

@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.js"></script>
 
     <script src="js/userService.js"></script>
     <script src="js/langClubApp.js"></script>
@@ -29,9 +29,9 @@
 
 </head>
 
-<body ng-controller="generalController">
+<body ng-controller="generalController" layout="column">
 
-<md-toolbar layout="row">
+<md-toolbar layout="row" layout-padding>
     <md-button ng-click="toggleNavMenu()" ng-hide="mdMediaWrapper()">
         <md-icon md-font-set="material-icons">menu</md-icon>
     </md-button>
@@ -61,9 +61,9 @@
     </md-sidenav>
 
     <!-- Container #4 Right -->
-    <md-content flex id="content" layout="column">
-       <md-content ng-view md-scroll-y flex layout-padding></md-content>
-    </md-content>
+    <div id="content" layout="column" flex>
+       <md-content ng-view flex layout-padding></md-content>
+    </div>
 </div>
 <!--
 <div layout="column" tabIndex="-1" role="main" flex>
