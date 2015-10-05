@@ -42,8 +42,8 @@
 <div flex layout="row">
 
     <!-- Container  #3 Left -->
-    <md-sidenav md-is-locked-open="mdMediaWrapper()" md-component-id="left"
-                class="md-whiteframe-z2">
+    <md-sidenav md-is-locked-open="mdMediaWrapper()" md-component-id="left" class="md-whiteframe-z2">
+
         <md-toolbar class="md-theme-indigo" layout="row">
             <h1 class="md-toolbar-tools">Sidenav Left</h1>
         </md-toolbar>

@@ -1,29 +1,29 @@
 <md-tabs md-dynamic-height>
     <md-tab label="Profile settings">
-        <md-content >
+        <md-content>
             <div layout="row">
                 <div flex="50">
                     <h2>Personal data</h2>
-                    <form name="personalDataForm">
+                    <form name="personalUserDataForm">
                         <md-input-container>
-                            <label>Nickname</label><input name="nickname" ng-model="user.nickname" required md-maxlength="30">
-                            <div ng-messages="personalDataForm.nickname.$error" ng-show="personalDataForm.nickname.$dirty">
+                            <label>Nickname</label><input name="nickname" ng-model="user.personalUserData.nickname" required md-maxlength="30">
+                            <div ng-messages="personalUserDataForm.nickname.$error" ng-show="personalUserDataForm.nickname.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
                             </div>
                         </md-input-container>
                         <md-input-container>
-                            <label>Full name</label><input name="fullName" ng-model="user.fullName" required>
-                            <div ng-messages="personalDataForm.fullName.$error" ng-show="personalDataForm.fullName.$dirty">
+                            <label>Full name</label><input name="fullName" ng-model="user.personalUserData.fullName" required>
+                            <div ng-messages="personalUserDataForm.fullName.$error" ng-show="personalUserDataForm.fullName.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
                             </div>
                         </md-input-container>
                         <md-input-container>
-                            <label>Email</label><input name="email" ng-model="user.email" required>
-                            <div ng-messages="personalDataForm.email.$error" ng-show="personalDataForm.email.$dirty">
+                            <label>Email</label><input name="email" ng-model="user.personalUserData.email" required>
+                            <div ng-messages="personalUserDataForm.email.$error" ng-show="personalUserDataForm.email.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
@@ -34,15 +34,16 @@
                 <md-divider></md-divider>
                 <div flex="50">
                     <h2>Languages</h2>
-                    <md-list>
-                    	<md-list-item ng-repeat="lang in user.languages">
-                    		{{lang.language}}: {{lang.level}}
-                    	</md-list-item>
-                    </md-list>
+                    <!--<md-chips ng-model="user.languages" md-on-append="addLanguageChip($chip)" placeholder=" + Language: Level">-->
+                        <!--<md-chip-template>-->
+                            <!--<strong>{{$chip.language}}</strong>: <em>{{$chip.level}}</em>-->
+                        <!--</md-chip-template>-->
+                    <!--</md-chips>-->
                 </div>
             </div>
             <md-divider></md-divider>
-            <md-button ng-click="setStubUserSettings()">set test data</md-button>
+            <md-button ng-click="setStubUserSettings()">Set test data</md-button>
+            <md-button ng-click="saveUserData()">Save</md-button>
         </md-content>
     </md-tab>
     <md-tab label="Connected accounts">

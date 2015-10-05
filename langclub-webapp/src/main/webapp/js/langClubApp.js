@@ -28,15 +28,14 @@ langClubApp.controller('generalController', ['$scope', '$mdSidenav', '$mdMedia',
 
 langClubApp.controller('accountController', ['$scope', 'userData', function($scope, userData) {
 
-    $scope.getUserData = function() {
-        userData.getData(function(data) {
-            $scope.languages = data.userLanguages;
-        });
-    };
-
     $scope.setStubUserSettings = function() {
         var data = {
             userId: '0',
+            userPersonalData: {
+                email: 'myemail@mail.com',
+                fullName: 'Jerry Pearson',
+                nickname: 'jer'
+            },
             userLanguages: [
                 {language: 'ENGLISH', level: 'ADVANCED'},
                 {language: 'RUSSIAN', level: 'NATIVE'}
@@ -45,15 +44,34 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
         userData.setData(data);
     };
 
+    $scope.saveUserData = function() {
+        userData.setData($scope.user);
+    };
+
     var loadUserData = function() {
     	userData.getData(function(data) {
             $scope.user = {
-            		personalData: data.personalData,
+            		personalUserData: data.personalUserData,
             		languages: data.userLanguages
             };
         });
-    }
-    
+    };
+
+    $scope.addLanguageChip = function($chip) {
+        var splitData = ('' + $chip).split(':', 2);
+        if (splitData && splitData.length == 2) {
+            return {
+                language: splitData[0].trim(),
+                level: splitData[1].trim()
+            };
+        } else {
+            return {
+                language: 'Unrecognized language',
+                level: 'Unrecognized level'
+            };
+        }
+    };
+
     $scope.$on('$viewContentLoaded', function() {
         loadUserData();
     });

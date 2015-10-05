@@ -16,10 +16,13 @@ import org.langclub.api.user.dto.UserDataDTO;
  */
 public class UserSettingsHelper {
 
-    public static void fillUserSettingsDTO(UserDataDTO userSettingsDTO, UserEntity userEntity) {
-        userSettingsDTO.setUserId(userEntity.getId());
+    public static void fillUserSettingsDTO(UserDataDTO userDataDTO, UserEntity userEntity) {
+        userDataDTO.setUserId(userEntity.getId());
+        userDataDTO.getPersonalUserData().setEmail(userEntity.getEmail());
+        userDataDTO.getPersonalUserData().setNickname(userEntity.getNickname());
+        userDataDTO.getPersonalUserData().setFullName(userEntity.getFullName());
         for (UserLanguageEntity userLanguageEntity: userEntity.getUserLanguageSet()) {
-            userSettingsDTO.getUserLanguages().add(new UserLanguageDTO(userLanguageEntity.getLanguage(), userLanguageEntity.getLanguageLevel()));
+            userDataDTO.getUserLanguages().add(new UserLanguageDTO(userLanguageEntity.getLanguage(), userLanguageEntity.getLanguageLevel()));
         }
     }
 
