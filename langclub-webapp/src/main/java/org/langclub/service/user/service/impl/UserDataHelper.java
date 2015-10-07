@@ -14,13 +14,13 @@ import org.langclub.api.user.dto.UserDataDTO;
  *          $Rev$
  *          $URL$
  */
-public class UserSettingsHelper {
+public class UserDataHelper {
 
-    public static void fillUserSettingsDTO(UserDataDTO userDataDTO, UserEntity userEntity) {
+    public static void fillUserDataDTO(UserDataDTO userDataDTO, UserEntity userEntity) {
         userDataDTO.setUserId(userEntity.getId());
-        userDataDTO.getPersonalUserData().setEmail(userEntity.getEmail());
-        userDataDTO.getPersonalUserData().setNickname(userEntity.getNickname());
-        userDataDTO.getPersonalUserData().setFullName(userEntity.getFullName());
+        userDataDTO.getUserPersonalData().setEmail(userEntity.getEmail());
+        userDataDTO.getUserPersonalData().setNickname(userEntity.getNickname());
+        userDataDTO.getUserPersonalData().setFullName(userEntity.getFullName());
         for (UserLanguageEntity userLanguageEntity: userEntity.getUserLanguageSet()) {
             userDataDTO.getUserLanguages().add(new UserLanguageDTO(userLanguageEntity.getLanguage(), userLanguageEntity.getLanguageLevel()));
         }

@@ -28,7 +28,7 @@ public class UserDataDTO {
         this.userId = userId;
     }
 
-    public UserPersonalDataDTO getPersonalUserData() {
+    public UserPersonalDataDTO getUserPersonalData() {
 		return userPersonalData;
 	}
 

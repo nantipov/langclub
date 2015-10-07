@@ -5,9 +5,9 @@ langClubApp.controller('generalController', ['$scope', '$mdSidenav', '$mdMedia',
     $scope.navigationItems = [
         {id: '#navViewDashboard', name: 'Dashboard'},
         {id: '#navViewAccount', name: 'Account'},
-        {id: 'navViewConference', name: 'Conference'},
-        {id: 'navViewWhiteScreen', name: 'White screen'},
-        {id: 'navViewDonate', name: 'Donate'}
+        {id: '#navViewConference', name: 'Conference'},
+        {id: '#navViewWhiteScreen', name: 'White screen'},
+        {id: '#navViewDonate', name: 'Donate'}
     ];
 
     $scope.currentNavItem = $scope.navigationItems[0];
@@ -51,10 +51,14 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
     var loadUserData = function() {
     	userData.getData(function(data) {
             $scope.user = {
-            		personalUserData: data.personalUserData,
-            		languages: data.userLanguages
+                userPersonalData: data.userPersonalData,
+                userLanguages: data.userLanguages
             };
         });
+    };
+
+    var prepareLanguagesList = function() {
+        //$scope.user.preparedLanguageList
     };
 
     $scope.addLanguageChip = function($chip) {

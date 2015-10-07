@@ -51,7 +51,7 @@ public class UserDataServiceImpl implements UserDataService {
 
         UserDataDTO userDataDTO = new UserDataDTO();
 
-        UserSettingsHelper.fillUserSettingsDTO(userDataDTO, userEntity);
+        UserDataHelper.fillUserDataDTO(userDataDTO, userEntity);
 
         return userDataDTO;
     }
@@ -67,6 +67,12 @@ public class UserDataServiceImpl implements UserDataService {
             userEntity.setId(userId);
         }
 
+        // personal data
+        userEntity.setEmail(userData.getUserPersonalData().getEmail());
+        userEntity.setNickname(userData.getUserPersonalData().getNickname());
+        userEntity.setFullName(userData.getUserPersonalData().getFullName());
+
+        // languages
         // process existing languages
         Set<UserLanguageDTO> processedLanguages = new HashSet<>();
         Iterator<UserLanguageEntity> languageEntityIterator = userEntity.getUserLanguageSet().iterator();

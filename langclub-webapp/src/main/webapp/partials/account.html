@@ -4,26 +4,26 @@
             <div layout="row">
                 <div flex="50">
                     <h2>Personal data</h2>
-                    <form name="personalUserDataForm">
+                    <form name="userPersonalDataForm">
                         <md-input-container>
-                            <label>Nickname</label><input name="nickname" ng-model="user.personalUserData.nickname" required md-maxlength="30">
-                            <div ng-messages="personalUserDataForm.nickname.$error" ng-show="personalUserDataForm.nickname.$dirty">
+                            <label>Nickname</label><input name="nickname" ng-model="user.userPersonalData.nickname" required md-maxlength="30">
+                            <div ng-messages="userPersonalDataForm.nickname.$error" ng-show="userPersonalDataForm.nickname.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
                             </div>
                         </md-input-container>
                         <md-input-container>
-                            <label>Full name</label><input name="fullName" ng-model="user.personalUserData.fullName" required>
-                            <div ng-messages="personalUserDataForm.fullName.$error" ng-show="personalUserDataForm.fullName.$dirty">
+                            <label>Full name</label><input name="fullName" ng-model="user.userPersonalData.fullName" required>
+                            <div ng-messages="userPersonalDataForm.fullName.$error" ng-show="userPersonalDataForm.fullName.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
                             </div>
                         </md-input-container>
                         <md-input-container>
-                            <label>Email</label><input name="email" ng-model="user.personalUserData.email" required>
-                            <div ng-messages="personalUserDataForm.email.$error" ng-show="personalUserDataForm.email.$dirty">
+                            <label>Email</label><input name="email" ng-model="user.userPersonalData.email" required>
+                            <div ng-messages="userPersonalDataForm.email.$error" ng-show="userPersonalDataForm.email.$dirty">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="md-maxlength">That's too long!</div>
                                 <div ng-message="minlength">That's too short!</div>
@@ -34,11 +34,12 @@
                 <md-divider></md-divider>
                 <div flex="50">
                     <h2>Languages</h2>
-                    <!--<md-chips ng-model="user.languages" md-on-append="addLanguageChip($chip)" placeholder=" + Language: Level">-->
+                    <!-- ng-model="user.userLanguages" md-on-append="addLanguageChip($chip)" placeholder=" + (Language: Level)" -->
+                    <md-chips ng-model="list">
                         <!--<md-chip-template>-->
                             <!--<strong>{{$chip.language}}</strong>: <em>{{$chip.level}}</em>-->
                         <!--</md-chip-template>-->
-                    <!--</md-chips>-->
+                    </md-chips>
                 </div>
             </div>
             <md-divider></md-divider>

@@ -51,7 +51,7 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
     }
 
     @Bean
-    public EntityManagerFactory relationEntityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean relationalEntityManagerFactoryBean() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
 
@@ -60,9 +60,12 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setDataSource(relationalDataSource());
         factory.setPackagesToScan("org.langclub.api");
-        factory.afterPropertiesSet();
+        return factory;
+    }
 
-        return factory.getObject();
+    @Bean
+    public EntityManagerFactory relationEntityManagerFactory() {
+        return relationalEntityManagerFactoryBean().getObject();
     }
 
     @Bean
