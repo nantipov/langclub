@@ -45,20 +45,36 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
     };
 
     $scope.saveUserData = function() {
+        $scope.user.userLanguages = [];
+        $scope.user.preparedLanguageList.forEach(function(value) {
+            var splitData = value.split(':', 2);
+            if (splitData && splitData.length == 2) {
+                $scope.user.userLanguages.push(
+                    {
+                        language: splitData[0].trim(),
+                        level: splitData[1].trim()
+                    }
+                );
+            }
+        });
         userData.setData($scope.user);
+    };
+
+    $scope.user = {
+        preparedLanguageList: []
     };
 
     var loadUserData = function() {
     	userData.getData(function(data) {
             $scope.user = {
                 userPersonalData: data.userPersonalData,
-                userLanguages: data.userLanguages
+                userLanguages: data.userLanguages,
+                preparedLanguageList: []
             };
+            data.userLanguages.forEach(function(value) {
+                $scope.user.preparedLanguageList.push(value.language + ": " + value.level);
+            });
         });
-    };
-
-    var prepareLanguagesList = function() {
-        //$scope.user.preparedLanguageList
     };
 
     $scope.addLanguageChip = function($chip) {
@@ -75,6 +91,11 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
             };
         }
     };
+
+    $scope.suggestedLanguages = [
+        "ENGLISH: NATIVE", "ENGLISH: BEGINNER",
+        "RUSSIAN: NATIVE", "RUSSIAN: BEGINNER"
+    ];
 
     $scope.$on('$viewContentLoaded', function() {
         loadUserData();

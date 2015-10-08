@@ -60,6 +60,12 @@ public class UserDataServiceImpl implements UserDataService {
     @Transactional
     public void setUserData(UserDataDTO userData) {
         String userId = userData.getUserId();
+
+        if (userId == null) {
+            // consider currently logged-in user
+            userId = UserUtils.getCurrentUserId();
+        }
+
         UserEntity userEntity = userDao.findOne(userId);
 
         if (userEntity == null) {

@@ -34,11 +34,15 @@
                 <md-divider></md-divider>
                 <div flex="50">
                     <h2>Languages</h2>
-                    <!-- ng-model="user.userLanguages" md-on-append="addLanguageChip($chip)" placeholder=" + (Language: Level)" -->
-                    <md-chips ng-model="list">
-                        <!--<md-chip-template>-->
-                            <!--<strong>{{$chip.language}}</strong>: <em>{{$chip.level}}</em>-->
-                        <!--</md-chip-template>-->
+                    <!-- ng-model="user.userLanguages" md-on-append="addLanguageChip($chip)" placeholder=" + Language: Level" -->
+                    <md-chips ng-model="user.preparedLanguageList">
+                        <md-autocomplete
+                                md-items="suggestedLanguage in suggestedLanguages"
+                                md-search-text="languageSearchText"
+                                md-item-text="suggestedLanguage"
+                                placeholder=" + (Language: Level)">
+                            <span md-highlight-text="languageSearchText">{{suggestedLanguage}}</span>
+                        </md-autocomplete>
                     </md-chips>
                 </div>
             </div>

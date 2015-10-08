@@ -26,7 +26,7 @@ public class UserUtils {
         }
         */
 
-        return "0"; //TODO: session and auth stuff over ThreadLocal
+        return "1"; //TODO: session and auth stuff over ThreadLocal
     }
 
 }
