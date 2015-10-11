@@ -30,7 +30,7 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
 
     $scope.setStubUserSettings = function() {
         var data = {
-            userId: '0',
+            userId: '1',
             userPersonalData: {
                 email: 'myemail@mail.com',
                 fullName: 'Jerry Pearson',

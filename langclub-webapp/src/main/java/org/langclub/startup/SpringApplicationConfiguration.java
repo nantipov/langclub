@@ -64,14 +64,14 @@ public class SpringApplicationConfiguration extends WebSecurityConfigurerAdapter
     }
 
     @Bean
-    public EntityManagerFactory relationEntityManagerFactory() {
-        return relationalEntityManagerFactoryBean().getObject();
+    public EntityManagerFactory relationEntityManagerFactory(LocalContainerEntityManagerFactoryBean emfBean) {
+        return emfBean.getObject();
     }
 
     @Bean
-    public PlatformTransactionManager relationalTransactionalManager() {
+    public PlatformTransactionManager relationalTransactionalManager(LocalContainerEntityManagerFactoryBean emfBean) {
         JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(relationEntityManagerFactory());
+        txManager.setEntityManagerFactory(relationEntityManagerFactory(emfBean));
         return txManager;
     }
 
