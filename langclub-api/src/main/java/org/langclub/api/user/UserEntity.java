@@ -42,8 +42,10 @@ public class UserEntity {
     private Set<UserConferenceEntity> userConferencesSet = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<ConferenceSearchCriteriaEntity> userConferenceSearchCriteria = new HashSet<>();
+    private Set<ConferenceSearchCriteriaEntity> userConferenceSearchCriteriasSet = new HashSet<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<UserConnectedAccount> userConnectedAccountsSet = new HashSet<>();
 
     public String getId() {
         return id;
@@ -93,11 +95,21 @@ public class UserEntity {
         this.userConferencesSet = userConferencesSet;
     }
 
-    public Set<ConferenceSearchCriteriaEntity> getUserConferenceSearchCriteria() {
-        return userConferenceSearchCriteria;
+    public Set<ConferenceSearchCriteriaEntity> getUserConferenceSearchCriteriasSet() {
+        return userConferenceSearchCriteriasSet;
     }
 
-    public void setUserConferenceSearchCriteria(Set<ConferenceSearchCriteriaEntity> userConferenceSearchCriteria) {
-        this.userConferenceSearchCriteria = userConferenceSearchCriteria;
+    public void setUserConferenceSearchCriteriasSet(Set<ConferenceSearchCriteriaEntity> userConferenceSearchCriteriasSet) {
+        this.userConferenceSearchCriteriasSet = userConferenceSearchCriteriasSet;
     }
+
+	public Set<UserConnectedAccount> getUserConnectedAccountsSet() {
+		return userConnectedAccountsSet;
+	}
+
+	public void setUserConnectedAccountsSet(Set<UserConnectedAccount> userConnectedAccountsSet) {
+		this.userConnectedAccountsSet = userConnectedAccountsSet;
+	}
+    
+    
 }

@@ -11,12 +11,14 @@ import org.langclub.api.user.dto.UserDataDTO;
  *          $Rev$
  *          $URL$
  */
-public interface UserDataService {
-
+public interface UserDataService { //TODO: rename to UserService
+	
     UserDataDTO getUserData();
 
     UserDataDTO getUserData(String userId);
 
     void setUserData(UserDataDTO userData);
+
+	void createUser(UserDataDTO userDataDTO);
 
 }

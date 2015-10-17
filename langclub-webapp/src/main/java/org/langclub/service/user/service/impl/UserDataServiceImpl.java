@@ -59,59 +59,24 @@ public class UserDataServiceImpl implements UserDataService {
     @Override
     @Transactional
     public void setUserData(UserDataDTO userData) {
-        String userId = userData.getUserId();
-
-        if (userId == null) {
-            // consider currently logged-in user
-            userId = UserUtils.getCurrentUserId();
-        }
+        String userId = UserUtils.getCurrentUserId();
 
         UserEntity userEntity = userDao.findOne(userId);
 
         if (userEntity == null) {
+        	//TODO: throw NoUserException or something like that
             userEntity = new UserEntity();
-            userEntity.setId(userId);
+            //userEntity.setId(userId);
         }
 
-        // personal data
-        userEntity.setEmail(userData.getUserPersonalData().getEmail());
-        userEntity.setNickname(userData.getUserPersonalData().getNickname());
-        userEntity.setFullName(userData.getUserPersonalData().getFullName());
-
-        // languages
-        // process existing languages
-        Set<UserLanguageDTO> processedLanguages = new HashSet<>();
-        Iterator<UserLanguageEntity> languageEntityIterator = userEntity.getUserLanguageSet().iterator();
-        while (languageEntityIterator.hasNext()) {
-            UserLanguageEntity userLanguageEntity = languageEntityIterator.next();
-            boolean found = false;
-            for (UserLanguageDTO userLanguageDTO: userData.getUserLanguages()) {
-                if (userLanguageDTO.getLanguage() == userLanguageEntity.getLanguage()) {
-                    found = true;
-                    processedLanguages.add(userLanguageDTO);
-                    if (userLanguageDTO.getLevel() != userLanguageEntity.getLanguageLevel()) {
-                        userLanguageEntity.setLanguageLevel(userLanguageDTO.getLevel());
-                    }
-                    break;
-                }
-            }
-            if (!found) {
-                // has been removed
-                languageEntityIterator.remove();
-            }
-        }
-
-        // process new languages
-        userData.getUserLanguages().removeAll(processedLanguages);
-        for (UserLanguageDTO userLanguageDTO: userData.getUserLanguages()) {
-            UserLanguageEntity userLanguageEntity = new UserLanguageEntity();
-            userLanguageEntity.setLanguage(userLanguageDTO.getLanguage());
-            userLanguageEntity.setLanguageLevel(userLanguageDTO.getLevel());
-            userLanguageEntity.setUser(userEntity);
-            userEntity.getUserLanguageSet().add(userLanguageEntity);
-        }
-
+        UserDataHelper.fillUserEntity(userEntity, userData);
+        
         userDao.saveAndFlush(userEntity);
     }
+
+	@Override
+	public void createUser(UserDataDTO userDataDTO) {
+		
+	}
 
 }

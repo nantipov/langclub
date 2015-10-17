@@ -12,6 +12,7 @@
 
         <class>org.langclub.api.user.UserEntity</class>
         <class>org.langclub.api.user.UserLanguageEntity</class>
+        <class>org.langclub.api.user.UserConnectedAccount</class>
 
         <class>org.langclub.api.club.conference.ConferenceEntity</class>
         <class>org.langclub.api.club.conference.ConferenceSearchCriteriaEntity</class>

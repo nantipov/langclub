@@ -24,8 +24,8 @@ public class UserLanguageEntity {
     @Column(name = "ID")
     private String id;
 
-    @ManyToOne
     @JoinColumn(name = "USER_ID", nullable = false)
+    @ManyToOne
     private UserEntity user;
 
     @Column(name = "LANGUAGE", nullable = false)
