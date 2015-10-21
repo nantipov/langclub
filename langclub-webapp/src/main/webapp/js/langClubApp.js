@@ -96,6 +96,11 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
         "ENGLISH: NATIVE", "ENGLISH: BEGINNER",
         "RUSSIAN: NATIVE", "RUSSIAN: BEGINNER"
     ];
+    
+    $scope.LIST_ACCOUNT_TYPES = [
+        {id: 'g', title: 'Google Plus', iconName: 'icon1'},
+        {id: 'm', title: 'Microsoft Live', iconName: 'icon2'}
+    ];
 
     $scope.$on('$viewContentLoaded', function() {
         loadUserData();

@@ -58,8 +58,26 @@
     </md-tab>
     <md-tab label="Connected accounts">
         <md-content>
-
+        	<md-list>
+        		<md-list-item ng-repeat="caccount in connectedAccounts">
+        			<md-icon></md-icon>
+        			<span>{{caccount.type}}</span>
+        			<md-button ng-click="discconectAccount">Disconnect<md-button>
+        		</md-list-item>
+        	</md-list>
         </md-content>
+		<md-menu>
+			 <!-- Trigger element is a md-button with an icon -->
+			 <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+			   Add
+			 </md-button>
+			 <md-menu-content>
+			 	<md-menu-item>Accounts</md-menu-item>
+			 	<md-menu-item ng-repeat="accountType in LIST_ACCOUNT_TYPES">
+			 		<md-button ng-click="doSomething(accountType.id)">{{accountType.title}}</md-button>
+			 	</md-menu-item>
+			 </md-menu-content>
+		</md-menu>
     </md-tab>
     <md-tab label="Payment settings">
         <md-content>
