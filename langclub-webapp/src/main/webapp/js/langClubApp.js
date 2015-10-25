@@ -108,6 +108,18 @@ langClubApp.controller('accountController', ['$scope', 'userData', function($sco
 
 }]);
 
+langClubApp.controller('conferenceController', ['$scope', function($scope) {
+	
+	$scope.searchCriteria = {
+		searchText: '',
+		dateRange: {
+			from: 10,
+			to: 20
+		}
+	};
+	
+}]);
+
 langClubApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -118,6 +130,10 @@ langClubApp.config(['$routeProvider',
             when('/navViewAccount', {
                 templateUrl: 'partials/account.html',
                 controller: 'accountController'
+            }).
+            when('/navViewConference', {
+                templateUrl: 'partials/club-conference.html',
+                controller: 'conferenceController'
             }).
             otherwise({
                 redirectTo: '/partials/dashboard_def.html'
