@@ -7,6 +7,24 @@
         			<input></input>
         		</md-input-container>
         	</form>
+        	<md-content class='md-padding' layout="row" flex>
+     			<div layout="row" flex>
+     				<!-- <md-virtual-repeat-container md-top-index="confIndex"> -->
+        				<div layout="column" ng-repeat="conference in conferences" flex>
+        					<md-card>
+								<img src="https://c1.staticflickr.com/1/599/21904032483_d4ae531250_m_d.jpg" class="md-card-image" alt="image caption">
+								<md-card-content>
+									<h2>Card headline</h2>
+									<p>Card content {{conference.id}}</p>
+								</md-card-content>
+								<md-card-footer>
+									Card footer
+								</md-card-footer>
+        					</md-card>            
+        				</div>
+        			<!-- </md-virtual-repeat-container> -->
+     			</div>
+        	</md-content>
         </md-content>
     </md-tab>
     <md-tab label="Appointments">

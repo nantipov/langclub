@@ -118,6 +118,14 @@ langClubApp.controller('conferenceController', ['$scope', function($scope) {
 		}
 	};
 	
+	$scope.confIndex = 0;
+	
+	$scope.conferences = [
+         {id: 'card1'},
+         {id: 'card2'}
+	];
+	
+	
 }]);
 
 langClubApp.config(['$routeProvider',
