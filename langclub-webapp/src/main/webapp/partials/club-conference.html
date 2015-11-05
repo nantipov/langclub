@@ -30,7 +30,37 @@
     <md-tab label="Appointments">
         <md-content>
 
-        </md-content>
+      </md-content>
+    </md-tab>
+    <md-tab label="Create own conference">
+        <md-content>
+	        <form name="createConferenceForm">
+	            <md-input-container>
+	                <label>When</label><md-datepicker name="whenDate" ng-model="newConference.whenDate"></md-datepicker>
+	                <div ng-messages="createConferenceForm.whenDate.$error" ng-show="createConferenceForm.whenDate.$dirty">
+	                    <div ng-message="required">This is required!</div>
+	                    <div ng-message="md-maxlength">That's too long!</div>
+	                    <div ng-message="minlength">That's too short!</div>
+	                </div>
+	            </md-input-container>
+	            <md-input-container>
+	                <label>Topic</label><input name="topic" ng-model="newConference.topic" required>
+	                <div ng-messages="createConferenceForm.topic.$error" ng-show="userPersonalDataForm.fullName.$dirty">
+	                    <div ng-message="required">This is required!</div>
+	                    <div ng-message="md-maxlength">That's too long!</div>
+	                    <div ng-message="minlength">That's too short!</div>
+	                </div>
+	            </md-input-container>
+	            <md-input-container>
+	                <label>Email</label><input name="email" ng-model="user.userPersonalData.email" required>
+	                <div ng-messages="userPersonalDataForm.email.$error" ng-show="userPersonalDataForm.email.$dirty">
+	                    <div ng-message="required">This is required!</div>
+	                    <div ng-message="md-maxlength">That's too long!</div>
+	                    <div ng-message="minlength">That's too short!</div>
+	                </div>
+	            </md-input-container>
+	        </form>
+        </md-content>    	
     </md-tab>
     <md-tab label="History">
         <md-content>

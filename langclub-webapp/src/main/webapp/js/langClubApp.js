@@ -125,6 +125,9 @@ langClubApp.controller('conferenceController', ['$scope', function($scope) {
          {id: 'card2'}
 	];
 	
+	$scope.newConference = {
+			whenDate: new Date()
+	};
 	
 }]);
 
